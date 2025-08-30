@@ -39,8 +39,8 @@
 
 // use reduce to calculate factorial of a given number from an array of first n natural numbers(n being the given whose factorial needs to be calculated)
 
-let n = 5; // Change this value to calculate factorial of a different number
-let naturalNumbers = Array.from({length: n}, (_,i) => i + 1);
-console.log(naturalNumbers);
-let factorial = naturalNumbers.reduce((acc, num)=> acc * num, 1)
-console.log(`Factorial of ${n} is:`, factorial);
+// let n = 5; // Change this value to calculate factorial of a different number
+// let naturalNumbers = Array.from({length: n}, (_,i) => i + 1);
+// console.log(naturalNumbers);
+// let factorial = naturalNumbers.reduce((acc, num)=> acc * num, 1)
+// console.log(`Factorial of ${n} is:`, factorial);
