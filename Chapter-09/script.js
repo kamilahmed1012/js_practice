@@ -49,19 +49,83 @@
 
 // getData()
 
-// Problem-01
+// Problem 01-02
 // Write a program to load a javaScript file i  a browser using Promises. Use .then() to display an alert when the load is complete  .
 
-// const p1 = new Promise((resolve, reject)=> {
-//     setTimeout(()=>{
-//         resolve('Hello World!')
-//     }), 2000}) 
+// async function getData (src){
+//    return new Promise((resolve, reject) => {
+//     let script = document.createElement('script')
+//     script.src = src;
+//     script.onload = () => {
+//         resolve(`${src} is loaded successfully`)
+//     }
+//     document.body.appendChild(script)
+// })
+// }
 
-// p1.then((value)=> {
-//     alert(value)
-// }).catch((error)=>{
-//     console.log(error)
+// let a  =  getData('https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js')
+// a.then((value)=>{
+//     console.log(value)
 // })
 
+// async function loadScript() {
+//     console.log(a)
+//     console.log('script is loaded')
+// }
 
+// loadScript()
 
+// Problem 03
+
+// let p = () => {
+//     return new Promise((resolve, reject)=>{
+//         setTimeout(()=>{
+//             reject(new Error('This is not acceptable'))
+//         }, 3000)
+//     })
+// }
+
+// let a = async () => {
+//     try{
+//         let c = await p()
+//         console.log(c)
+//     }catch(error){
+//         console.log('The error is handle')
+//     }
+// }
+
+// a()
+
+let newPromise = async () => {
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            resolve(10)
+        }, 1000)
+    })
+}
+let newPromise2 = async () => {
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            resolve(8)
+        }, 2000)
+    })
+}
+let newPromise3 = async () => {
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            resolve(13)
+        }, 3000)
+    })
+}
+
+const run = async () => {
+    console.time('run')
+    let a1 = newPromise()
+    let a2 = newPromise2()
+    let a3 = newPromise3()
+    let allPromise = await Promise.all([a1, a2, a3])
+    console.log(allPromise)
+    console.timeEnd('run')
+}
+
+run()
